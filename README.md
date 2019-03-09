@@ -37,5 +37,8 @@ func createMux() *http.ServeMux {
 
 This will start an HTTPS server on `myhost.com`, requesting a certificate from Let's Encrypt at the start.
 
+## Headers
+package `headers` contains all HTTP headers defined in the HTTP specifications.
+
 ## MIME Types
 package `mimetypes` contains all MIME Types registered with IANA.
