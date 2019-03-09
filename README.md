@@ -3,6 +3,13 @@
 ## HTTPS
 package `https` provides a function to serve HTTPS with Let's Encrypt.
 All you need is this package and a mapped hostname, and you're ready to go with just one function call.
+The function `MustServeHttps` will
+* Configure the Certificate Manager to obtain the certificate from Let's Encrypt.
+* Start the HTTPS server in a goroutine based on the `http.ServeMux` provided as argument.
+* Start an HTTP server in a goroutine which redirects to HTTPS as well as handles the Let's Encrypt callback.
+
+Because the servers are started in goroutines, the main function now needs to wait for termination.
+The `https` package provides a utility function for that.
 
 Example code:
 ```go
