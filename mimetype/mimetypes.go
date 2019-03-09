@@ -3,11 +3,11 @@
 // The advantage of using the constants from this package over string literals is correctness.
 // The compiler can spot errors that the runtime couldn't.
 // Example:
-//     // Spelling mistake, not caught by the compiler
-//     w.Header().Add("Content-Type", "applicaiton/xml")
+//     // Spelling mistakes, not caught by the compiler
+//     w.Header().Add("Content-Tpye", "applicaiton/xml")
 //
-//     // Spelling mistake, caught by the compiler
-//     w.Header().Add(header.ContentType, mimetype.ApplicatoinXml)
+//     // Spelling mistakes, caught by the compiler
+//     w.Header().Add(header.ContentTpye, mimetype.ApplicatoinXml)
 //
 // Note: Currently, only a subset is implemented.
 // The goal is to implement all registered MIME Types by scraping.
