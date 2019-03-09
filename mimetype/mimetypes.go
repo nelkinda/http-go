@@ -1,4 +1,4 @@
-// Package mimetypes defines the constants for all IANA registered MIME Types.
+// Package mimetype defines the constants for all IANA registered MIME Types.
 // See https://www.iana.org/assignments/media-types for the official list.
 // The advantage of using the constants from this package over string literals is correctness.
 // The compiler can spot errors that the runtime couldn't.

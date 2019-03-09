@@ -20,7 +20,7 @@ func main() {
 	if doc, err := xmlquery.LoadURL(url); err != nil {
 		panic(err)
 	} else {
-		_, _ = fmt.Fprintf(os.Stdout, `// Package mimetypes defines the constants for all IANA registered MIME Types.
+		_, _ = fmt.Fprintf(os.Stdout, `// Package mimetype defines the constants for all IANA registered MIME Types.
 // See https://www.iana.org/assignments/media-types for the official list.
 // The advantage of using the constants from this package over string literals is correctness.
 // The compiler can spot errors that the runtime couldn't.
@@ -35,16 +35,10 @@ func main() {
 // The goal is to implement all registered MIME Types by scraping.
 package mimetype
 `)
-		scrapeTypes(doc, "application")
-		scrapeTypes(doc, "audio")
-		scrapeTypes(doc, "font")
-		scrapeTypes(doc, "example")
-		scrapeTypes(doc, "image")
-		scrapeTypes(doc, "message")
-		scrapeTypes(doc, "model")
-		scrapeTypes(doc, "multipart")
-		scrapeTypes(doc, "text")
-		scrapeTypes(doc, "video")
+		superTypes := []string{"application", "audio", "font", "example", "image", "message", "model", "multipart", "text", "video"}
+		for _, superType := range superTypes {
+			scrapeTypes(doc, superType)
+		}
 	}
 }
 
