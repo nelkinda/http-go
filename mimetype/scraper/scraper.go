@@ -1,25 +1,63 @@
 package main
 
 import (
-	"encoding/xml"
 	"fmt"
+	"github.com/antchfx/xmlquery"
+	"github.com/iancoleman/strcase"
 	"os"
+	"regexp"
 )
 
-type Node struct {
-	XMLName xml.Name
-	Attrs   []xml.Attr `xml:"-"`
-	Content []byte     `xml:",innerxml"`
-	Nodes   []Node     `xml:",any"`
-}
+var format = `
+	// %s is the constant for the mime type "%s".
+	%s = "%s"
+`
 
-func (n *Node) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
-	n.Attrs = start.Attr
-	type node Node
-	return d.DecodeElement((*node)(n), &start)
-}
+var re = regexp.MustCompile("[/+-.]")
 
 func main() {
 	url := "https://www.iana.org/assignments/media-types/media-types.xhtml"
-	fmt.Fprintf(os.Stderr, "%s\n", url)
+	if doc, err := xmlquery.LoadURL(url); err != nil {
+		panic(err)
+	} else {
+		_, _ = fmt.Fprintf(os.Stdout, `// Package mimetypes defines the constants for all IANA registered MIME Types.
+// See https://www.iana.org/assignments/media-types for the official list.
+// The advantage of using the constants from this package over string literals is correctness.
+// The compiler can spot errors that the runtime couldn't.
+// Example:
+//     // Spelling mistakes, not caught by the compiler
+//     w.Header().Add("Content-Tpye", "applicaiton/xml")
+//
+//     // Spelling mistakes, caught by the compiler
+//     w.Header().Add(header.ContentTpye, mimetype.ApplicatoinXml)
+//
+// Note: Currently, only a subset is implemented.
+// The goal is to implement all registered MIME Types by scraping.
+package mimetype
+`)
+		scrapeTypes(doc, "application")
+		scrapeTypes(doc, "audio")
+		scrapeTypes(doc, "font")
+		scrapeTypes(doc, "example")
+		scrapeTypes(doc, "image")
+		scrapeTypes(doc, "message")
+		scrapeTypes(doc, "model")
+		scrapeTypes(doc, "multipart")
+		scrapeTypes(doc, "text")
+		scrapeTypes(doc, "video")
+	}
+}
+
+func scrapeTypes(doc *xmlquery.Node, superType string) {
+	_, _ = fmt.Fprintf(os.Stdout, "\nconst (")
+	for _, row := range xmlquery.Find(doc, fmt.Sprintf("//table[@id='table-%s']/tbody/tr", superType)) {
+		typeName := superType + "/" + xmlquery.FindOne(row, "td[1]").InnerText()
+		constantName := constantNameForTypeName(typeName)
+		_, _ = fmt.Fprintf(os.Stdout, format, constantName, typeName, constantName, typeName)
+	}
+	_, _ = fmt.Fprintf(os.Stdout, ")\n")
+}
+
+func constantNameForTypeName(t string) string {
+	return strcase.ToCamel(re.ReplaceAllString(t, "_"))
 }
