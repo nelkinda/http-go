@@ -3,6 +3,9 @@ package cache
 import (
 	"bytes"
 	"compress/gzip"
+	"crypto/md5"
+	"encoding/hex"
+	"fmt"
 	"github.com/nelkinda/http-go/header"
 	"github.com/nelkinda/http-go/mimetype"
 	"io/ioutil"
@@ -21,7 +24,9 @@ type Entry struct {
 	Body         []byte
 	GzipBody     []byte
 	ContentType  string
-	LastModified time.Time
+	LastModified *time.Time
+	MaxAge       time.Duration
+	ETag         string
 }
 
 type Cache struct {
@@ -58,18 +63,31 @@ func ServeCacheEntry(w http.ResponseWriter, r *http.Request, id string) {
 	if cacheEntry, ok := GlobalCache.Cache[id]; !ok {
 		http.NotFoundHandler().ServeHTTP(w, r)
 	} else {
-		contentType := cacheEntry.ContentType
-		contentType = fixContentType(r, contentType)
-		w.Header().Add(header.ContentType, contentType)
-		//w.Header().Add(header.LastModified, now.Format(http.TimeFormat))
-		//w.Header().Add(header.Expires, now.AddDate(0, 0, 7).Format(http.TimeFormat))
-		//w.Header().Add(header.CacheControl, "max-age=604800")
-		if isGzip(r) {
-			w.Header().Add(header.ContentEncoding, Gzip)
-			_, _ = w.Write(cacheEntry.GzipBody)
-		} else {
-			_, _ = w.Write(cacheEntry.Body)
-		}
+		cacheEntry.Serve(w, r)
+	}
+}
+
+func (e *Entry) Serve(w http.ResponseWriter, r *http.Request) {
+	contentType := e.ContentType
+	contentType = fixContentType(r, contentType)
+	w.Header().Add(header.ContentType, contentType)
+	if e.ETag == "" {
+		i := md5.Sum(e.Body)
+		e.ETag = `"` + hex.EncodeToString(i[:]) + `"`
+	}
+	w.Header().Add(header.ETag, e.ETag)
+	if e.LastModified != nil {
+		w.Header().Add(header.LastModified, e.LastModified.Format(http.TimeFormat))
+	}
+	if e.MaxAge != 0 {
+		w.Header().Add(header.Expires, time.Now().Add(e.MaxAge).Format(http.TimeFormat))
+		w.Header().Add(header.CacheControl, fmt.Sprintf("max-age=%d", int(e.MaxAge.Seconds())))
+	}
+	if isGzip(r) {
+		w.Header().Add(header.ContentEncoding, Gzip)
+		_, _ = w.Write(e.GzipBody)
+	} else {
+		_, _ = w.Write(e.Body)
 	}
 }
 
@@ -95,7 +113,7 @@ func isGzip(r *http.Request) bool {
 	return false
 }
 
-func (c *Cache) LoadCacheFile(filename string, uri string, contentType string) error {
+func (c *Cache) LoadCacheFile(filename string, uri string, contentType string, maxAge time.Duration) error {
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return err
@@ -104,17 +122,19 @@ func (c *Cache) LoadCacheFile(filename string, uri string, contentType string) e
 	if err != nil {
 		return err
 	}
+	modTime := fileStat.ModTime()
 	c.Cache[uri] = &Entry{
 		Body:         body,
 		GzipBody:     compressGzip(body),
 		ContentType:  contentType,
-		LastModified: fileStat.ModTime(),
+		LastModified: &modTime,
+		MaxAge:       maxAge,
 	}
 	return nil
 }
 
-func LoadCacheFile(filename string, uri string, contentType string) error {
-	return GlobalCache.LoadCacheFile(filename, uri, contentType)
+func LoadCacheFile(filename string, uri string, contentType string, maxAge time.Duration) error {
+	return GlobalCache.LoadCacheFile(filename, uri, contentType, maxAge)
 }
 
 func compressGzip(data []byte) []byte {
