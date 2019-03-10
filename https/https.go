@@ -86,3 +86,37 @@ func WaitForIntOrTerm() {
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
 	<-sigChan
 }
+
+type statusWriter struct {
+	http.ResponseWriter
+	status int
+	length int
+}
+
+func (w *statusWriter) WriteHeader(status int) {
+	w.status = status
+	w.ResponseWriter.WriteHeader(status)
+}
+
+func (w *statusWriter) Write(b []byte) (int, error) {
+	if w.status == 0 {
+		w.status = 200
+	}
+	n, err := w.ResponseWriter.Write(b)
+	w.length += n
+	return n, err
+}
+
+func LogHandler(handler http.Handler) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		sw := statusWriter{ResponseWriter: w}
+		handler.ServeHTTP(&sw, r)
+		duration := time.Now().Sub(start)
+		_, _ = fmt.Fprintf(os.Stderr, "%s: %s: served %s\t%s\t%s\t%s\t%s\t%s\t%d\t%d\t%s\t\"%s\"\t%d\n", os.Args[0], "info", start.UTC().Format(time.RFC3339), r.Host, r.RemoteAddr, r.Method, r.RequestURI, r.Proto, sw.status, sw.length, r.Referer(), r.Header.Get("User-Agent"), duration)
+	}
+}
+
+func LogHandlerFunc(handler http.HandlerFunc) http.HandlerFunc {
+	return LogHandler(http.HandlerFunc(handler))
+}
