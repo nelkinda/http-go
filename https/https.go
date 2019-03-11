@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-func MustServeHttps(hostname string, mux *http.ServeMux) {
-	mustStartRedirectHttp(mustStartHttps(hostname, mux))
+func MustServeHttps(mux *http.ServeMux, hostnames ...string) {
+	mustStartRedirectHttp(mustStartHttps(mux, hostnames...))
 }
 
 func mustStartRedirectHttp(certManager *autocert.Manager) {
@@ -38,14 +38,16 @@ func mustStartRedirectHttp(certManager *autocert.Manager) {
 	}()
 }
 
-func mustStartHttps(hostname string, mux *http.ServeMux) *autocert.Manager {
+func mustStartHttps(mux *http.ServeMux, hostnames ...string) *autocert.Manager {
 	certManager := &autocert.Manager{
 		Prompt: autocert.AcceptTOS,
 		HostPolicy: func(ctx context.Context, host string) error {
-			if host != hostname {
-				return fmt.Errorf("acme/autocert: only %s host is allowed", hostname)
+			for _, h := range hostnames {
+				if h == host {
+					return nil
+				}
 			}
-			return nil
+			return fmt.Errorf("acme/autocert: %s not in the list of allowed hostnames %v", host, hostnames)
 		},
 		Cache: autocert.DirCache("."),
 	}
