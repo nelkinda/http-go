@@ -18,7 +18,7 @@ func main() {
 	mux.HandleFunc("/health", health.New(health.Health{Version: "1", ReleaseId: "0.0.1-SNAPSHOT"}, uptime.Process()).Handler)
 
 	if *startHttpsPtr {
-		https.MustServeHttps(mux, *serverNamePtr)
+		https.MustServeHttps(".", mux, *serverNamePtr)
 	} else {
 		https.MustServeHttp(mux)
 	}

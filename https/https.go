@@ -14,8 +14,8 @@ import (
 	"time"
 )
 
-func MustServeHttps(mux *http.ServeMux, hostnames ...string) {
-	mustStartRedirectHttp(mustStartHttps(mux, hostnames...))
+func MustServeHttps(certDir string, mux *http.ServeMux, hostnames ...string) {
+	mustStartRedirectHttp(mustStartHttps(certDir, mux, hostnames...))
 }
 
 func mustStartRedirectHttp(certManager *autocert.Manager) {
@@ -38,7 +38,7 @@ func mustStartRedirectHttp(certManager *autocert.Manager) {
 	}()
 }
 
-func mustStartHttps(mux *http.ServeMux, hostnames ...string) *autocert.Manager {
+func mustStartHttps(certDir string, mux *http.ServeMux, hostnames ...string) *autocert.Manager {
 	certManager := &autocert.Manager{
 		Prompt: autocert.AcceptTOS,
 		HostPolicy: func(ctx context.Context, host string) error {
@@ -49,7 +49,7 @@ func mustStartHttps(mux *http.ServeMux, hostnames ...string) *autocert.Manager {
 			}
 			return fmt.Errorf("acme/autocert: %s not in the list of allowed hostnames %v", host, hostnames)
 		},
-		Cache: autocert.DirCache("."),
+		Cache: autocert.DirCache(certDir),
 	}
 	httpsSrv := &http.Server{
 		ReadTimeout:  5 * time.Second,
