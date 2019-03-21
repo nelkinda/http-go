@@ -122,8 +122,9 @@ func (c *Cache) LoadCacheFile(filename string, uri string, contentType string, m
 	if err != nil {
 		return err
 	}
-	modTime := fileStat.ModTime()
+	modTime := fileStat.ModTime().UTC()
 	c.Cache[uri] = &Entry{
+		URI:          uri,
 		Body:         body,
 		GzipBody:     compressGzip(body),
 		ContentType:  contentType,
@@ -173,4 +174,29 @@ func (c *Cache) Add(entry *Entry) {
 
 func Add(entry *Entry) {
 	GlobalCache.Add(entry)
+}
+
+func (c *Cache) Sitemap(r *http.Request) string {
+	sitemap := `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+`
+	for key, entry := range c.Cache {
+		switch entry.ContentType {
+		case mimetype.ApplicationXhtmlXml, mimetype.TextHtml:
+			if entry.LastModified != nil {
+				sitemap += fmt.Sprintf("<url><loc>https://%s%s</loc><lastmod>%s</lastmod></url>\n", r.Host, key, entry.LastModified.Format(time.RFC3339Nano))
+			} else {
+				sitemap += fmt.Sprintf("<url><loc>https://%s%s</loc></url>\n", r.Host, entry.URI)
+			}
+		}
+		if entry.URI == "" {
+			fmt.Fprintf(os.Stderr, "%v\n", key)
+		}
+	}
+	sitemap += `</urlset>`
+	return sitemap
+}
+
+func Sitemap(r *http.Request) string {
+	return GlobalCache.Sitemap(r)
 }
