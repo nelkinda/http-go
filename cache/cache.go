@@ -189,9 +189,6 @@ func (c *Cache) Sitemap(r *http.Request) string {
 				sitemap += fmt.Sprintf("<url><loc>https://%s%s</loc></url>\n", r.Host, entry.URI)
 			}
 		}
-		if entry.URI == "" {
-			fmt.Fprintf(os.Stderr, "%v\n", key)
-		}
 	}
 	sitemap += `</urlset>`
 	return sitemap
