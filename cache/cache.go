@@ -16,23 +16,42 @@ import (
 )
 
 const (
+	// Gzip is the constant for the Content-Encoding "gzip".
 	Gzip = "gzip"
 )
 
+// Entry describes a single entry in the cache.
 type Entry struct {
+
+	// The URI to which this entry is mapped.
+	// This is the same as the key in the cache.
 	URI          string
+
+	// The uncompressed response body.
 	Body         []byte
+
+	// The GZip compressed response body.
 	GzipBody     []byte
+
+	// The Content-Type of the body.
 	ContentType  string
+
+	// The Last-Modified timestamp of the body.
 	LastModified *time.Time
+
+	// The maximum cache age of the body.
 	MaxAge       time.Duration
+
+	// The ETag of the body, if available.
 	ETag         string
 }
 
+// Cache is a HTTP Cache.
 type Cache struct {
 	Cache map[string]*Entry
 }
 
+// GlobalCache is the global (default) cache.
 var GlobalCache = &Cache{Cache: make(map[string]*Entry)}
 
 func CacheHandlerFunc(fallback http.HandlerFunc) http.HandlerFunc {
