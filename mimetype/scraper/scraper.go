@@ -42,12 +42,15 @@ package mimetype
 	}
 }
 
+var afterSpacePattern = regexp.MustCompile(" .*")
+
 func scrapeTypes(doc *xmlquery.Node, superType string) {
 	_, _ = fmt.Fprintf(os.Stdout, "\nconst (")
 	for _, row := range xmlquery.Find(doc, fmt.Sprintf("//table[@id='table-%s']/tbody/tr", superType)) {
-		typeName := superType + "/" + xmlquery.FindOne(row, "td[1]").InnerText()
+		typeDesc := superType + "/" + xmlquery.FindOne(row, "td[1]").InnerText()
+		typeName := afterSpacePattern.ReplaceAllString(typeDesc, "")
 		constantName := constantNameForTypeName(typeName)
-		_, _ = fmt.Fprintf(os.Stdout, format, constantName, typeName, constantName, typeName)
+		_, _ = fmt.Fprintf(os.Stdout, format, constantName, typeDesc, constantName, typeName)
 	}
 	_, _ = fmt.Fprintf(os.Stdout, ")\n")
 }
