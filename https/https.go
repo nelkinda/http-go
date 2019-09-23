@@ -120,5 +120,5 @@ func LogHandler(handler http.Handler) http.HandlerFunc {
 }
 
 func LogHandlerFunc(handler http.HandlerFunc) http.HandlerFunc {
-	return LogHandler(http.HandlerFunc(handler))
+	return LogHandler(handler)
 }
