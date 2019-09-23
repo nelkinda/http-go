@@ -365,14 +365,17 @@ const (
 	// ApplicationFits is the constant for the mime type "application/fits".
 	ApplicationFits = "application/fits"
 
-	// ApplicationFontSfntDEPRECATEDInFavorOfFontSfnt is the constant for the mime type "application/font-sfnt - DEPRECATED in favor of font/sfnt".
-	ApplicationFontSfntDEPRECATEDInFavorOfFontSfnt = "application/font-sfnt - DEPRECATED in favor of font/sfnt"
+	// ApplicationFlexfec is the constant for the mime type "application/flexfec".
+	ApplicationFlexfec = "application/flexfec"
+
+	// ApplicationFontSfnt is the constant for the mime type "application/font-sfnt - DEPRECATED in favor of font/sfnt".
+	ApplicationFontSfnt = "application/font-sfnt"
 
 	// ApplicationFontTdpfr is the constant for the mime type "application/font-tdpfr".
 	ApplicationFontTdpfr = "application/font-tdpfr"
 
-	// ApplicationFontWoffDEPRECATEDInFavorOfFontWoff is the constant for the mime type "application/font-woff - DEPRECATED in favor of font/woff".
-	ApplicationFontWoffDEPRECATEDInFavorOfFontWoff = "application/font-woff - DEPRECATED in favor of font/woff"
+	// ApplicationFontWoff is the constant for the mime type "application/font-woff - DEPRECATED in favor of font/woff".
+	ApplicationFontWoff = "application/font-woff"
 
 	// ApplicationFrameworkAttributesXml is the constant for the mime type "application/framework-attributes+xml".
 	ApplicationFrameworkAttributesXml = "application/framework-attributes+xml"
@@ -605,6 +608,9 @@ const (
 	// ApplicationMikey is the constant for the mime type "application/mikey".
 	ApplicationMikey = "application/mikey"
 
+	// ApplicationMipc is the constant for the mime type "application/mipc".
+	ApplicationMipc = "application/mipc"
+
 	// ApplicationMmtAeiXml is the constant for the mime type "application/mmt-aei+xml".
 	ApplicationMmtAeiXml = "application/mmt-aei+xml"
 
@@ -712,6 +718,9 @@ const (
 
 	// ApplicationOgg is the constant for the mime type "application/ogg".
 	ApplicationOgg = "application/ogg"
+
+	// ApplicationOscore is the constant for the mime type "application/oscore".
+	ApplicationOscore = "application/oscore"
 
 	// ApplicationOxps is the constant for the mime type "application/oxps".
 	ApplicationOxps = "application/oxps"
@@ -1004,11 +1013,14 @@ const (
 	// ApplicationSimpleSymbolContainer is the constant for the mime type "application/simpleSymbolContainer".
 	ApplicationSimpleSymbolContainer = "application/simpleSymbolContainer"
 
+	// ApplicationSipc is the constant for the mime type "application/sipc".
+	ApplicationSipc = "application/sipc"
+
 	// ApplicationSlate is the constant for the mime type "application/slate".
 	ApplicationSlate = "application/slate"
 
-	// ApplicationSmilOBSOLETEDInFavorOfApplicationSmilXml is the constant for the mime type "application/smil - OBSOLETED in favor of application/smil+xml".
-	ApplicationSmilOBSOLETEDInFavorOfApplicationSmilXml = "application/smil - OBSOLETED in favor of application/smil+xml"
+	// ApplicationSmil is the constant for the mime type "application/smil - OBSOLETED in favor of application/smil+xml".
+	ApplicationSmil = "application/smil"
 
 	// ApplicationSmilXml is the constant for the mime type "application/smil+xml".
 	ApplicationSmilXml = "application/smil+xml"
@@ -1043,11 +1055,14 @@ const (
 	// ApplicationSruXml is the constant for the mime type "application/sru+xml".
 	ApplicationSruXml = "application/sru+xml"
 
+	// ApplicationSsmlXml is the constant for the mime type "application/ssml+xml".
+	ApplicationSsmlXml = "application/ssml+xml"
+
 	// ApplicationStixJson is the constant for the mime type "application/stix+json".
 	ApplicationStixJson = "application/stix+json"
 
-	// ApplicationSsmlXml is the constant for the mime type "application/ssml+xml".
-	ApplicationSsmlXml = "application/ssml+xml"
+	// ApplicationSwidXml is the constant for the mime type "application/swid+xml".
+	ApplicationSwidXml = "application/swid+xml"
 
 	// ApplicationTampApexUpdate is the constant for the mime type "application/tamp-apex-update".
 	ApplicationTampApexUpdate = "application/tamp-apex-update"
@@ -1223,8 +1238,11 @@ const (
 	// ApplicationVnd3gppMcvideoAffiliationCommandXml is the constant for the mime type "application/vnd.3gpp.mcvideo-affiliation-command+xml".
 	ApplicationVnd3gppMcvideoAffiliationCommandXml = "application/vnd.3gpp.mcvideo-affiliation-command+xml"
 
-	// ApplicationVnd3gppMcvideoAffiliationInfoXml is the constant for the mime type "application/vnd.3gpp.mcvideo-affiliation-info+xml".
+	// ApplicationVnd3gppMcvideoAffiliationInfoXml is the constant for the mime type "application/vnd.3gpp.mcvideo-affiliation-info+xml - OBSOLETED in favor of application/vnd.3gpp.mcvideo-info+xml".
 	ApplicationVnd3gppMcvideoAffiliationInfoXml = "application/vnd.3gpp.mcvideo-affiliation-info+xml"
+
+	// ApplicationVnd3gppMcvideoInfoXml is the constant for the mime type "application/vnd.3gpp.mcvideo-info+xml".
+	ApplicationVnd3gppMcvideoInfoXml = "application/vnd.3gpp.mcvideo-info+xml"
 
 	// ApplicationVnd3gppMcvideoLocationInfoXml is the constant for the mime type "application/vnd.3gpp.mcvideo-location-info+xml".
 	ApplicationVnd3gppMcvideoLocationInfoXml = "application/vnd.3gpp.mcvideo-location-info+xml"
@@ -1364,6 +1382,9 @@ const (
 	// ApplicationVndAmundsenMazeXml is the constant for the mime type "application/vnd.amundsen.maze+xml".
 	ApplicationVndAmundsenMazeXml = "application/vnd.amundsen.maze+xml"
 
+	// ApplicationVndAndroidOta is the constant for the mime type "application/vnd.android.ota".
+	ApplicationVndAndroidOta = "application/vnd.android.ota"
+
 	// ApplicationVndAnki is the constant for the mime type "application/vnd.anki".
 	ApplicationVndAnki = "application/vnd.anki"
 
@@ -1403,8 +1424,8 @@ const (
 	// ApplicationVndApplePages is the constant for the mime type "application/vnd.apple.pages".
 	ApplicationVndApplePages = "application/vnd.apple.pages"
 
-	// ApplicationVndArastraSwiOBSOLETEDInFavorOfApplicationVndAristanetworksSwi is the constant for the mime type "application/vnd.arastra.swi - OBSOLETED in favor of application/vnd.aristanetworks.swi".
-	ApplicationVndArastraSwiOBSOLETEDInFavorOfApplicationVndAristanetworksSwi = "application/vnd.arastra.swi - OBSOLETED in favor of application/vnd.aristanetworks.swi"
+	// ApplicationVndArastraSwi is the constant for the mime type "application/vnd.arastra.swi - OBSOLETED in favor of application/vnd.aristanetworks.swi".
+	ApplicationVndArastraSwi = "application/vnd.arastra.swi"
 
 	// ApplicationVndAristanetworksSwi is the constant for the mime type "application/vnd.aristanetworks.swi".
 	ApplicationVndAristanetworksSwi = "application/vnd.aristanetworks.swi"
@@ -1435,6 +1456,9 @@ const (
 
 	// ApplicationVndBananaAccounting is the constant for the mime type "application/vnd.banana-accounting".
 	ApplicationVndBananaAccounting = "application/vnd.banana-accounting"
+
+	// ApplicationVndBbfUspError is the constant for the mime type "application/vnd.bbf.usp.error".
+	ApplicationVndBbfUspError = "application/vnd.bbf.usp.error"
 
 	// ApplicationVndBbfUspMsg is the constant for the mime type "application/vnd.bbf.usp.msg".
 	ApplicationVndBbfUspMsg = "application/vnd.bbf.usp.msg"
@@ -1469,6 +1493,12 @@ const (
 	// ApplicationVndBmi is the constant for the mime type "application/vnd.bmi".
 	ApplicationVndBmi = "application/vnd.bmi"
 
+	// ApplicationVndBpf is the constant for the mime type "application/vnd.bpf".
+	ApplicationVndBpf = "application/vnd.bpf"
+
+	// ApplicationVndBpf3 is the constant for the mime type "application/vnd.bpf3".
+	ApplicationVndBpf3 = "application/vnd.bpf3"
+
 	// ApplicationVndBusinessobjects is the constant for the mime type "application/vnd.businessobjects".
 	ApplicationVndBusinessobjects = "application/vnd.businessobjects"
 
@@ -1501,6 +1531,9 @@ const (
 
 	// ApplicationVndChipnutsKaraokeMmd is the constant for the mime type "application/vnd.chipnuts.karaoke-mmd".
 	ApplicationVndChipnutsKaraokeMmd = "application/vnd.chipnuts.karaoke-mmd"
+
+	// ApplicationVndCiedi is the constant for the mime type "application/vnd.ciedi".
+	ApplicationVndCiedi = "application/vnd.ciedi"
 
 	// ApplicationVndCinderella is the constant for the mime type "application/vnd.cinderella".
 	ApplicationVndCinderella = "application/vnd.cinderella"
@@ -1594,6 +1627,12 @@ const (
 
 	// ApplicationVndCriticaltoolsWbsXml is the constant for the mime type "application/vnd.criticaltools.wbs+xml".
 	ApplicationVndCriticaltoolsWbsXml = "application/vnd.criticaltools.wbs+xml"
+
+	// ApplicationVndCryptiiPipeJson is the constant for the mime type "application/vnd.cryptii.pipe+json".
+	ApplicationVndCryptiiPipeJson = "application/vnd.cryptii.pipe+json"
+
+	// ApplicationVndCryptoShadeFile is the constant for the mime type "application/vnd.crypto-shade-file".
+	ApplicationVndCryptoShadeFile = "application/vnd.crypto-shade-file"
 
 	// ApplicationVndCtcPosml is the constant for the mime type "application/vnd.ctc-posml".
 	ApplicationVndCtcPosml = "application/vnd.ctc-posml"
@@ -2024,11 +2063,11 @@ const (
 	// ApplicationVndGenomatixTuxedo is the constant for the mime type "application/vnd.genomatix.tuxedo".
 	ApplicationVndGenomatixTuxedo = "application/vnd.genomatix.tuxedo"
 
-	// ApplicationVndGeoJsonOBSOLETEDByRFC7946InFavorOfApplicationGeoJson is the constant for the mime type "application/vnd.geo+json (OBSOLETED by [RFC7946] in favor of application/geo+json)".
-	ApplicationVndGeoJsonOBSOLETEDByRFC7946InFavorOfApplicationGeoJson = "application/vnd.geo+json (OBSOLETED by [RFC7946] in favor of application/geo+json)"
+	// ApplicationVndGeoJson is the constant for the mime type "application/vnd.geo+json (OBSOLETED by [RFC7946] in favor of application/geo+json)".
+	ApplicationVndGeoJson = "application/vnd.geo+json"
 
-	// ApplicationVndGeocubeXmlOBSOLETEDByRequest is the constant for the mime type "application/vnd.geocube+xml - OBSOLETED by request".
-	ApplicationVndGeocubeXmlOBSOLETEDByRequest = "application/vnd.geocube+xml - OBSOLETED by request"
+	// ApplicationVndGeocubeXml is the constant for the mime type "application/vnd.geocube+xml - OBSOLETED by request".
+	ApplicationVndGeocubeXml = "application/vnd.geocube+xml"
 
 	// ApplicationVndGeogebraFile is the constant for the mime type "application/vnd.geogebra.file".
 	ApplicationVndGeogebraFile = "application/vnd.geogebra.file"
@@ -2057,8 +2096,8 @@ const (
 	// ApplicationVndGlobalplatformCardContentMgtResponse is the constant for the mime type "application/vnd.globalplatform.card-content-mgt-response".
 	ApplicationVndGlobalplatformCardContentMgtResponse = "application/vnd.globalplatform.card-content-mgt-response"
 
-	// ApplicationVndGmxDEPRECATED is the constant for the mime type "application/vnd.gmx - DEPRECATED".
-	ApplicationVndGmxDEPRECATED = "application/vnd.gmx - DEPRECATED"
+	// ApplicationVndGmx is the constant for the mime type "application/vnd.gmx - DEPRECATED".
+	ApplicationVndGmx = "application/vnd.gmx"
 
 	// ApplicationVndGoogleEarthKmlXml is the constant for the mime type "application/vnd.google-earth.kml+xml".
 	ApplicationVndGoogleEarthKmlXml = "application/vnd.google-earth.kml+xml"
@@ -2165,8 +2204,8 @@ const (
 	// ApplicationVndHzn3dCrossword is the constant for the mime type "application/vnd.hzn-3d-crossword".
 	ApplicationVndHzn3dCrossword = "application/vnd.hzn-3d-crossword"
 
-	// ApplicationVndIbmAfplinedataOBSOLETEDInFavorOfVndAfpcAfplinedata is the constant for the mime type "application/vnd.ibm.afplinedata - OBSOLETED in favor of vnd.afpc.afplinedata".
-	ApplicationVndIbmAfplinedataOBSOLETEDInFavorOfVndAfpcAfplinedata = "application/vnd.ibm.afplinedata - OBSOLETED in favor of vnd.afpc.afplinedata"
+	// ApplicationVndIbmAfplinedata is the constant for the mime type "application/vnd.ibm.afplinedata - OBSOLETED in favor of vnd.afpc.afplinedata".
+	ApplicationVndIbmAfplinedata = "application/vnd.ibm.afplinedata"
 
 	// ApplicationVndIbmElectronicMedia is the constant for the mime type "application/vnd.ibm.electronic-media".
 	ApplicationVndIbmElectronicMedia = "application/vnd.ibm.electronic-media"
@@ -2174,8 +2213,8 @@ const (
 	// ApplicationVndIbmMiniPay is the constant for the mime type "application/vnd.ibm.MiniPay".
 	ApplicationVndIbmMiniPay = "application/vnd.ibm.MiniPay"
 
-	// ApplicationVndIbmModcapOBSOLETEDInFavorOfApplicationVndAfpcModca is the constant for the mime type "application/vnd.ibm.modcap - OBSOLETED in favor of application/vnd.afpc.modca".
-	ApplicationVndIbmModcapOBSOLETEDInFavorOfApplicationVndAfpcModca = "application/vnd.ibm.modcap - OBSOLETED in favor of application/vnd.afpc.modca"
+	// ApplicationVndIbmModcap is the constant for the mime type "application/vnd.ibm.modcap - OBSOLETED in favor of application/vnd.afpc.modca".
+	ApplicationVndIbmModcap = "application/vnd.ibm.modcap"
 
 	// ApplicationVndIbmRightsManagement is the constant for the mime type "application/vnd.ibm.rights-management".
 	ApplicationVndIbmRightsManagement = "application/vnd.ibm.rights-management"
@@ -2240,8 +2279,8 @@ const (
 	// ApplicationVndInfotechProjectXml is the constant for the mime type "application/vnd.infotech.project+xml".
 	ApplicationVndInfotechProjectXml = "application/vnd.infotech.project+xml"
 
-	// ApplicationVndInformixVisionaryOBSOLETEDInFavorOfApplicationVndVisionary is the constant for the mime type "application/vnd.informix-visionary - OBSOLETED in favor of application/vnd.visionary".
-	ApplicationVndInformixVisionaryOBSOLETEDInFavorOfApplicationVndVisionary = "application/vnd.informix-visionary - OBSOLETED in favor of application/vnd.visionary"
+	// ApplicationVndInformixVisionary is the constant for the mime type "application/vnd.informix-visionary - OBSOLETED in favor of application/vnd.visionary".
+	ApplicationVndInformixVisionary = "application/vnd.informix-visionary"
 
 	// ApplicationVndInnopathWampNotification is the constant for the mime type "application/vnd.innopath.wamp.notification".
 	ApplicationVndInnopathWampNotification = "application/vnd.innopath.wamp.notification"
@@ -2302,6 +2341,9 @@ const (
 
 	// ApplicationVndJam is the constant for the mime type "application/vnd.jam".
 	ApplicationVndJam = "application/vnd.jam"
+
+	// ApplicationVndIso1178310Zip is the constant for the mime type "application/vnd.iso11783-10+zip".
+	ApplicationVndIso1178310Zip = "application/vnd.iso11783-10+zip"
 
 	// ApplicationVndJapannetDirectoryService is the constant for the mime type "application/vnd.japannet-directory-service".
 	ApplicationVndJapannetDirectoryService = "application/vnd.japannet-directory-service"
@@ -2381,11 +2423,17 @@ const (
 	// ApplicationVndKodakDescriptor is the constant for the mime type "application/vnd.kodak-descriptor".
 	ApplicationVndKodakDescriptor = "application/vnd.kodak-descriptor"
 
+	// ApplicationVndLas is the constant for the mime type "application/vnd.las".
+	ApplicationVndLas = "application/vnd.las"
+
 	// ApplicationVndLasLasJson is the constant for the mime type "application/vnd.las.las+json".
 	ApplicationVndLasLasJson = "application/vnd.las.las+json"
 
 	// ApplicationVndLasLasXml is the constant for the mime type "application/vnd.las.las+xml".
 	ApplicationVndLasLasXml = "application/vnd.las.las+xml"
+
+	// ApplicationVndLaszip is the constant for the mime type "application/vnd.laszip".
+	ApplicationVndLaszip = "application/vnd.laszip"
 
 	// ApplicationVndLeapJson is the constant for the mime type "application/vnd.leap+json".
 	ApplicationVndLeapJson = "application/vnd.leap+json"
@@ -2398,6 +2446,12 @@ const (
 
 	// ApplicationVndLlamagraphicsLifeBalanceExchangeXml is the constant for the mime type "application/vnd.llamagraphics.life-balance.exchange+xml".
 	ApplicationVndLlamagraphicsLifeBalanceExchangeXml = "application/vnd.llamagraphics.life-balance.exchange+xml"
+
+	// ApplicationVndLogipipeCircuitZip is the constant for the mime type "application/vnd.logipipe.circuit+zip".
+	ApplicationVndLogipipeCircuitZip = "application/vnd.logipipe.circuit+zip"
+
+	// ApplicationVndLoom is the constant for the mime type "application/vnd.loom".
+	ApplicationVndLoom = "application/vnd.loom"
 
 	// ApplicationVndLotus123 is the constant for the mime type "application/vnd.lotus-1-2-3".
 	ApplicationVndLotus123 = "application/vnd.lotus-1-2-3"
@@ -2759,8 +2813,8 @@ const (
 	// ApplicationVndNokiaNGageData is the constant for the mime type "application/vnd.nokia.n-gage.data".
 	ApplicationVndNokiaNGageData = "application/vnd.nokia.n-gage.data"
 
-	// ApplicationVndNokiaNGageSymbianInstallOBSOLETENoReplacementGiven is the constant for the mime type "application/vnd.nokia.n-gage.symbian.install - OBSOLETE; no replacement given".
-	ApplicationVndNokiaNGageSymbianInstallOBSOLETENoReplacementGiven = "application/vnd.nokia.n-gage.symbian.install - OBSOLETE; no replacement given"
+	// ApplicationVndNokiaNGageSymbianInstall is the constant for the mime type "application/vnd.nokia.n-gage.symbian.install - OBSOLETE; no replacement given".
+	ApplicationVndNokiaNGageSymbianInstall = "application/vnd.nokia.n-gage.symbian.install"
 
 	// ApplicationVndNokiaPcdWbxml is the constant for the mime type "application/vnd.nokia.pcd+wbxml".
 	ApplicationVndNokiaPcdWbxml = "application/vnd.nokia.pcd+wbxml"
@@ -3536,6 +3590,9 @@ const (
 	// ApplicationVndSemf is the constant for the mime type "application/vnd.semf".
 	ApplicationVndSemf = "application/vnd.semf"
 
+	// ApplicationVndShadeSaveFile is the constant for the mime type "application/vnd.shade-save-file".
+	ApplicationVndShadeSaveFile = "application/vnd.shade-save-file"
+
 	// ApplicationVndShanaInformedFormdata is the constant for the mime type "application/vnd.shana.informed.formdata".
 	ApplicationVndShanaInformedFormdata = "application/vnd.shana.informed.formdata"
 
@@ -3550,6 +3607,9 @@ const (
 
 	// ApplicationVndShootproofJson is the constant for the mime type "application/vnd.shootproof+json".
 	ApplicationVndShootproofJson = "application/vnd.shootproof+json"
+
+	// ApplicationVndShopkickJson is the constant for the mime type "application/vnd.shopkick+json".
+	ApplicationVndShopkickJson = "application/vnd.shopkick+json"
 
 	// ApplicationVndSigrokSession is the constant for the mime type "application/vnd.sigrok.session".
 	ApplicationVndSigrokSession = "application/vnd.sigrok.session"
@@ -3761,6 +3821,9 @@ const (
 	// ApplicationVndVeryantThin is the constant for the mime type "application/vnd.veryant.thin".
 	ApplicationVndVeryantThin = "application/vnd.veryant.thin"
 
+	// ApplicationVndVesEncrypted is the constant for the mime type "application/vnd.ves.encrypted".
+	ApplicationVndVesEncrypted = "application/vnd.ves.encrypted"
+
 	// ApplicationVndVidsoftVidconference is the constant for the mime type "application/vnd.vidsoft.vidconference".
 	ApplicationVndVidsoftVidconference = "application/vnd.vidsoft.vidconference"
 
@@ -3905,7 +3968,7 @@ const (
 	// ApplicationVndYellowriverCustomMenu is the constant for the mime type "application/vnd.yellowriver-custom-menu".
 	ApplicationVndYellowriverCustomMenu = "application/vnd.yellowriver-custom-menu"
 
-	// ApplicationVndYoutubeYt is the constant for the mime type "application/vnd.youtube.yt".
+	// ApplicationVndYoutubeYt is the constant for the mime type "application/vnd.youtube.yt - OBSOLETED in favor of video/vnd.youtube.yt".
 	ApplicationVndYoutubeYt = "application/vnd.youtube.yt"
 
 	// ApplicationVndZul is the constant for the mime type "application/vnd.zul".
@@ -4176,6 +4239,9 @@ const (
 
 	// AudioExample is the constant for the mime type "audio/example".
 	AudioExample = "audio/example"
+
+	// AudioFlexfec is the constant for the mime type "audio/flexfec".
+	AudioFlexfec = "audio/flexfec"
 
 	// AudioFwdred is the constant for the mime type "audio/fwdred".
 	AudioFwdred = "audio/fwdred"
@@ -4480,8 +4546,8 @@ const (
 	// AudioVndPresonusMultitrack is the constant for the mime type "audio/vnd.presonus.multitrack".
 	AudioVndPresonusMultitrack = "audio/vnd.presonus.multitrack"
 
-	// AudioVndQcelpDEPRECATEDInFavorOfAudioQcelp is the constant for the mime type "audio/vnd.qcelp - DEPRECATED in favor of audio/qcelp".
-	AudioVndQcelpDEPRECATEDInFavorOfAudioQcelp = "audio/vnd.qcelp - DEPRECATED in favor of audio/qcelp"
+	// AudioVndQcelp is the constant for the mime type "audio/vnd.qcelp - DEPRECATED in favor of audio/qcelp".
+	AudioVndQcelp = "audio/vnd.qcelp"
 
 	// AudioVndRhetorex32kadpcm is the constant for the mime type "audio/vnd.rhetorex.32kadpcm".
 	AudioVndRhetorex32kadpcm = "audio/vnd.rhetorex.32kadpcm"
@@ -4570,6 +4636,12 @@ const (
 	// ImageHeifSequence is the constant for the mime type "image/heif-sequence".
 	ImageHeifSequence = "image/heif-sequence"
 
+	// ImageHej2K is the constant for the mime type "image/hej2k".
+	ImageHej2K = "image/hej2k"
+
+	// ImageHsj2 is the constant for the mime type "image/hsj2".
+	ImageHsj2 = "image/hsj2"
+
 	// ImageIef is the constant for the mime type "image/ief".
 	ImageIef = "image/ief"
 
@@ -4582,11 +4654,38 @@ const (
 	// ImageJpeg is the constant for the mime type "image/jpeg".
 	ImageJpeg = "image/jpeg"
 
+	// ImageJph is the constant for the mime type "image/jph".
+	ImageJph = "image/jph"
+
+	// ImageJphc is the constant for the mime type "image/jphc".
+	ImageJphc = "image/jphc"
+
 	// ImageJpm is the constant for the mime type "image/jpm".
 	ImageJpm = "image/jpm"
 
 	// ImageJpx is the constant for the mime type "image/jpx".
 	ImageJpx = "image/jpx"
+
+	// ImageJxr is the constant for the mime type "image/jxr".
+	ImageJxr = "image/jxr"
+
+	// ImageJxrA is the constant for the mime type "image/jxrA".
+	ImageJxrA = "image/jxrA"
+
+	// ImageJxrS is the constant for the mime type "image/jxrS".
+	ImageJxrS = "image/jxrS"
+
+	// ImageJxs is the constant for the mime type "image/jxs".
+	ImageJxs = "image/jxs"
+
+	// ImageJxsc is the constant for the mime type "image/jxsc".
+	ImageJxsc = "image/jxsc"
+
+	// ImageJxsi is the constant for the mime type "image/jxsi".
+	ImageJxsi = "image/jxsi"
+
+	// ImageJxss is the constant for the mime type "image/jxss".
+	ImageJxss = "image/jxss"
 
 	// ImageKtx is the constant for the mime type "image/ktx".
 	ImageKtx = "image/ktx"
@@ -4708,11 +4807,11 @@ const (
 	// ImageWmf is the constant for the mime type "image/wmf".
 	ImageWmf = "image/wmf"
 
-	// ImageXEmfDEPRECATEDInFavorOfImageEmf is the constant for the mime type "image/x-emf - DEPRECATED in favor of image/emf".
-	ImageXEmfDEPRECATEDInFavorOfImageEmf = "image/x-emf - DEPRECATED in favor of image/emf"
+	// ImageXEmf is the constant for the mime type "image/x-emf - DEPRECATED in favor of image/emf".
+	ImageXEmf = "image/x-emf"
 
-	// ImageXWmfDEPRECATEDInFavorOfImageWmf is the constant for the mime type "image/x-wmf - DEPRECATED in favor of image/wmf".
-	ImageXWmfDEPRECATEDInFavorOfImageWmf = "image/x-wmf - DEPRECATED in favor of image/wmf"
+	// ImageXWmf is the constant for the mime type "image/x-wmf - DEPRECATED in favor of image/wmf".
+	ImageXWmf = "image/x-wmf"
 )
 
 const (
@@ -4752,8 +4851,8 @@ const (
 	// MessageImdnXml is the constant for the mime type "message/imdn+xml".
 	MessageImdnXml = "message/imdn+xml"
 
-	// MessageNewsOBSOLETEDByRFC5537 is the constant for the mime type "message/news - OBSOLETED by RFC5537".
-	MessageNewsOBSOLETEDByRFC5537 = "message/news - OBSOLETED by RFC5537"
+	// MessageNews is the constant for the mime type "message/news - OBSOLETED by RFC5537".
+	MessageNews = "message/news"
 
 	// MessagePartial is the constant for the mime type "message/partial".
 	MessagePartial = "message/partial"
@@ -4773,8 +4872,8 @@ const (
 	// MessageTrackingStatus is the constant for the mime type "message/tracking-status".
 	MessageTrackingStatus = "message/tracking-status"
 
-	// MessageVndSiSimpOBSOLETEDByRequest is the constant for the mime type "message/vnd.si.simp - OBSOLETED by request".
-	MessageVndSiSimpOBSOLETEDByRequest = "message/vnd.si.simp - OBSOLETED by request"
+	// MessageVndSiSimp is the constant for the mime type "message/vnd.si.simp - OBSOLETED by request".
+	MessageVndSiSimp = "message/vnd.si.simp"
 
 	// MessageVndWfaWsc is the constant for the mime type "message/vnd.wfa.wsc".
 	MessageVndWfaWsc = "message/vnd.wfa.wsc"
@@ -4932,14 +5031,14 @@ const (
 	// TextCsvSchema is the constant for the mime type "text/csv-schema".
 	TextCsvSchema = "text/csv-schema"
 
-	// TextDirectoryDEPRECATEDByRFC6350 is the constant for the mime type "text/directory - DEPRECATED by RFC6350".
-	TextDirectoryDEPRECATEDByRFC6350 = "text/directory - DEPRECATED by RFC6350"
+	// TextDirectory is the constant for the mime type "text/directory - DEPRECATED by RFC6350".
+	TextDirectory = "text/directory"
 
 	// TextDns is the constant for the mime type "text/dns".
 	TextDns = "text/dns"
 
-	// TextEcmascriptOBSOLETEDInFavorOfApplicationEcmascript is the constant for the mime type "text/ecmascript - OBSOLETED in favor of application/ecmascript".
-	TextEcmascriptOBSOLETEDInFavorOfApplicationEcmascript = "text/ecmascript - OBSOLETED in favor of application/ecmascript"
+	// TextEcmascript is the constant for the mime type "text/ecmascript - OBSOLETED in favor of application/ecmascript".
+	TextEcmascript = "text/ecmascript"
 
 	// TextEncaprtp is the constant for the mime type "text/encaprtp".
 	TextEncaprtp = "text/encaprtp"
@@ -4950,6 +5049,9 @@ const (
 	// TextExample is the constant for the mime type "text/example".
 	TextExample = "text/example"
 
+	// TextFlexfec is the constant for the mime type "text/flexfec".
+	TextFlexfec = "text/flexfec"
+
 	// TextFwdred is the constant for the mime type "text/fwdred".
 	TextFwdred = "text/fwdred"
 
@@ -4959,8 +5061,8 @@ const (
 	// TextHtml is the constant for the mime type "text/html".
 	TextHtml = "text/html"
 
-	// TextJavascriptOBSOLETEDInFavorOfApplicationJavascript is the constant for the mime type "text/javascript - OBSOLETED in favor of application/javascript".
-	TextJavascriptOBSOLETEDInFavorOfApplicationJavascript = "text/javascript - OBSOLETED in favor of application/javascript"
+	// TextJavascript is the constant for the mime type "text/javascript - OBSOLETED in favor of application/javascript".
+	TextJavascript = "text/javascript"
 
 	// TextJcrCnd is the constant for the mime type "text/jcr-cnd".
 	TextJcrCnd = "text/jcr-cnd"
@@ -5115,11 +5217,14 @@ const (
 	// TextVndSenxWarpscript is the constant for the mime type "text/vnd.senx.warpscript".
 	TextVndSenxWarpscript = "text/vnd.senx.warpscript"
 
-	// TextVndSiUricatalogueOBSOLETEDByRequest is the constant for the mime type "text/vnd.si.uricatalogue - OBSOLETED by request".
-	TextVndSiUricatalogueOBSOLETEDByRequest = "text/vnd.si.uricatalogue - OBSOLETED by request"
+	// TextVndSiUricatalogue is the constant for the mime type "text/vnd.si.uricatalogue - OBSOLETED by request".
+	TextVndSiUricatalogue = "text/vnd.si.uricatalogue"
 
 	// TextVndSunJ2MeAppDescriptor is the constant for the mime type "text/vnd.sun.j2me.app-descriptor".
 	TextVndSunJ2MeAppDescriptor = "text/vnd.sun.j2me.app-descriptor"
+
+	// TextVndSosi is the constant for the mime type "text/vnd.sosi".
+	TextVndSosi = "text/vnd.sosi"
 
 	// TextVndTrolltechLinguist is the constant for the mime type "text/vnd.trolltech.linguist".
 	TextVndTrolltechLinguist = "text/vnd.trolltech.linguist"
@@ -5173,6 +5278,9 @@ const (
 
 	// VideoExample is the constant for the mime type "video/example".
 	VideoExample = "video/example"
+
+	// VideoFlexfec is the constant for the mime type "video/flexfec".
+	VideoFlexfec = "video/flexfec"
 
 	// VideoH261 is the constant for the mime type "video/H261".
 	VideoH261 = "video/H261"
@@ -5380,6 +5488,9 @@ const (
 
 	// VideoVndUvvuMp4 is the constant for the mime type "video/vnd.uvvu.mp4".
 	VideoVndUvvuMp4 = "video/vnd.uvvu.mp4"
+
+	// VideoVndYoutubeYt is the constant for the mime type "video/vnd.youtube.yt".
+	VideoVndYoutubeYt = "video/vnd.youtube.yt"
 
 	// VideoVndVivo is the constant for the mime type "video/vnd.vivo".
 	VideoVndVivo = "video/vnd.vivo"
