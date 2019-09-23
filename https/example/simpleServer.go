@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/nelkinda/health-go"
-	"github.com/nelkinda/health-go/details/uptime"
+	"github.com/nelkinda/health-go/checks/uptime"
 	"github.com/nelkinda/http-go/https"
 	"net/http"
 	"os"
@@ -15,7 +15,7 @@ func main() {
 	flag.Parse()
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/health", health.New(health.Health{Version: "1", ReleaseId: "0.0.1-SNAPSHOT"}, uptime.Process()).Handler)
+	mux.HandleFunc("/health", health.New(health.Health{Version: "1", ReleaseID: "0.0.1-SNAPSHOT"}, uptime.Process()).Handler)
 
 	if *startHttpsPtr {
 		https.MustServeHttps(".", mux, *serverNamePtr)
