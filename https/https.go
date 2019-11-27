@@ -18,7 +18,14 @@ func MustServeHttps(certDir string, mux *http.ServeMux, hostnames ...string) {
 	mustStartRedirectHttp(mustStartHttps(certDir, mux, hostnames...))
 }
 
+func MustServeHttpsPort(httpAddr, httpsAddr string, certDir string, mux *http.ServeMux, hostnames ...string) {
+	mustStartRedirectHttpPort(httpAddr, mustStartHttpsPort(httpsAddr, certDir, mux, hostnames...))
+}
+
 func mustStartRedirectHttp(certManager *autocert.Manager) {
+	mustStartRedirectHttpPort(":http", certManager)
+}
+func mustStartRedirectHttpPort(addr string, certManager *autocert.Manager) {
 	redirectMux := &http.ServeMux{}
 	redirectMux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		newURI := "https://" + r.Host + r.URL.String()
@@ -28,6 +35,7 @@ func mustStartRedirectHttp(certManager *autocert.Manager) {
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 5 * time.Second,
 		IdleTimeout:  120 * time.Second,
+		Addr: addr,
 		Handler: certManager.HTTPHandler(redirectMux),
 	}
 	go func() {
@@ -39,6 +47,10 @@ func mustStartRedirectHttp(certManager *autocert.Manager) {
 }
 
 func mustStartHttps(certDir string, mux *http.ServeMux, hostnames ...string) *autocert.Manager {
+	return mustStartHttpsPort(":https", certDir, mux, hostnames...)
+}
+
+func mustStartHttpsPort(addr string, certDir string, mux *http.ServeMux, hostnames ...string) *autocert.Manager {
 	certManager := &autocert.Manager{
 		Prompt: autocert.AcceptTOS,
 		HostPolicy: func(ctx context.Context, host string) error {
@@ -56,7 +68,7 @@ func mustStartHttps(certDir string, mux *http.ServeMux, hostnames ...string) *au
 		WriteTimeout: 5 * time.Second,
 		IdleTimeout:  120 * time.Second,
 		Handler:      mux,
-		Addr:         ":443",
+		Addr:         addr,
 		TLSConfig:    &tls.Config{GetCertificate: certManager.GetCertificate},
 	}
 	go func() {
@@ -69,10 +81,14 @@ func mustStartHttps(certDir string, mux *http.ServeMux, hostnames ...string) *au
 }
 
 func MustServeHttp(mux *http.ServeMux) {
+	MustServeHttpPort(":http", mux)
+}
+func MustServeHttpPort(addr string, mux *http.ServeMux) {
 	httpServer := &http.Server{
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 5 * time.Second,
 		IdleTimeout:  120 * time.Second,
+		Addr: addr,
 		Handler: mux,
 	}
 	go func() {
