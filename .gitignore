@@ -1,1 +1,10 @@
-.idea/workspace.xml
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Make
+.makehelp/
+.help.mk
+
+# Vim
+*.swp
