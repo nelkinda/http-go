@@ -1,5 +1,7 @@
 # `http-go` - Making http even more useful
 
+![Go](https://github.com/nelkinda/http-go/workflows/Go/badge.svg)
+
 ## HTTPS
 package `https` provides a function to serve HTTPS with Let's Encrypt.
 All you need is this package and a mapped hostname, and you're ready to go with just one function call.
